@@ -1,0 +1,17 @@
+#!/bin/bash
+
+domain=$(sudo yunohost app setting kanboard domain)
+photos_path=$(sudo yunohost app setting photoshow photos_path)
+
+
+sudo rm -rf $photos_path
+sudo rm -rf /var/www/photoshow
+sudo rm -f /etc/nginx/conf.d/$domain.d/photoshow.conf
+
+sudo yunohost app setting photoshow adminusername -d
+sudo yunohost app setting photoshow domain -d
+sudo yunohost app setting photoshow path -d
+sudo yunohost app setting photoshow photos_path -d
+
+sudo service nginx reload
+sudo yunohost app ssowatconf

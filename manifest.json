@@ -1,0 +1,61 @@
+{
+    "name": "PhotoShow",
+    "id": "photoshow",
+    "description": {
+        "en": "PhotoShow is a web photo gallery, simple and responsive",
+        "fr": "PhotoShow est une galerie photo web, simple et responsive." 
+    },
+    "developer": {
+        "name": "mbugeia",
+        "email": "maxime.bugeia@gmail.com",
+        "url": "http://www.photoshow-gallery.com/"
+    },
+    "multi_instance": "true",
+    "arguments": {
+        "install" : [
+            {
+                "name": "domain",
+                "ask": {
+                    "en": "Choose a domain for PhotoShow",
+                    "fr": "Choisissez un domaine pour PhotoShow"
+                },
+                "example": "domain.org"
+            },
+            {
+                "name": "path",
+                "ask": {
+                    "en": "Choose a path for PhotoShow",
+                    "fr": "Choisissez un chemin pour PhotoShow"
+                },
+                "example": "/photoshow",
+                "default": "/photoshow"
+            },
+			{
+			   "name": "photos_path",
+                "ask": {
+                    "en": "Choose a path for PhotoShow photos",
+                    "fr": "Choisissez l'administrateur de PhotoShow"
+                },
+                "example": "/var/www/photoshow/photos",
+                "default": "/var/www/photoshow/photos"
+            },
+			{
+			   "name": "timezone",
+                "ask": {
+                    "en": "Choose a timezone",
+                    "fr": "Choisissez votre fuseau horaire"
+                },
+                "example": "Europe/Paris",
+                "default": "Europe/Paris"
+            },
+			{
+			   "name": "admin",
+                "ask": {
+                    "en": "Choose the admin user for PhotoShow",
+                    "fr": "Choisissez l'administrateur de PhotoShow"
+                },
+                "example": "johndoe"
+            }
+        ]
+    }
+}
