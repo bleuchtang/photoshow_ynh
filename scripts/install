@@ -21,26 +21,19 @@ sudo yunohost app setting photoshow skipped_uris -v "$path"
 final_path=/var/www/photoshow
 thumbnails_path=/var/www/photoshow/thumbnails
 
-sudo mkdir -p $final_path
-sudo cp -a ../sources/* $final_path
+sudo git clone https://github.com/thibaud-rohmer/PhotoShow.git $final_path
 
 sudo mkdir -p $photos_path
 sudo mkdir -p $thumbnails_path
 
 sudo cp ../conf/config.php $final_path
-sudo sed -i "s@yunophotodir@$photos_path@g" $final_path/config.php
-sudo sed -i "s@yunothumbdir@$thumbnails_path@g" $final_path/config.php
-sudo sed -i "s@yunotimezone@$timezone@g" $final_path/config.php
+sudo sed -i "s@path_to_your_photos_dir_goes_here@$photos_path@g" $final_path/config.php
+sudo sed -i "s@path_where_photoshow_generates_files_goes_here@$thumbnails_path@g" $final_path/config.php
+sudo sed -i "s@#\$config->timezone@\$config->timezone@g" $final_path/config.php
+sudo sed -i "s@Europe/Paris@$timezone@g" $final_path/config.php
 
 sudo chown -R www-data:www-data $photos_path
 sudo chown -R www-data:www-data $thumbnails_path
-
-# Ajout de l'utilisateur admin
-#sudo cp ../conf/Mysql.php $final_path/app/Schema
-#sudo sed -i "s/yunoadmin/$admin/g" $final_path/app/Schema/Mysql.php
-
-
-
 
 # Modify Nginx configuration file and copy it to Nginx conf directory
 sed -i "s@PATHTOCHANGE@$path@g" ../conf/nginx.conf*
