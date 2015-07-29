@@ -26,7 +26,6 @@ sudo git clone https://github.com/thibaud-rohmer/PhotoShow.git $final_path
 sudo mkdir -p $photos_path
 sudo mkdir -p $thumbnails_path
 
-sudo cp ../conf/config.php $final_path
 sudo sed -i "s@path_to_your_photos_dir_goes_here@$photos_path@g" $final_path/config.php
 sudo sed -i "s@path_where_photoshow_generates_files_goes_here@$thumbnails_path@g" $final_path/config.php
 sudo sed -i "s@#\$config->timezone@\$config->timezone@g" $final_path/config.php
