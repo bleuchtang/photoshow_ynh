@@ -16,7 +16,7 @@ fi
 
 sudo yunohost app setting photoshow adminusername -v $admin
 sudo yunohost app setting photoshow photo_path -v $photos_path
-
+sudo yunohost app setting photoshow skipped_uris -v "$path"
 
 final_path=/var/www/photoshow
 thumbnails_path=/var/www/photoshow/thumbnails
